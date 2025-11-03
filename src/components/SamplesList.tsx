@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Sample } from "@/tools/samples.model";
-import Logout from '@/components/Logout';
 
 export function SamplesList({ samples }:{ samples:Sample[]}) {
     return (
@@ -15,8 +14,6 @@ export function SamplesList({ samples }:{ samples:Sample[]}) {
                         Add New Sample
                     </button>
                 </Link>
-
-                <Logout />
 
             </div>
             <div className="mb-3">Portfolio Samples:</div>

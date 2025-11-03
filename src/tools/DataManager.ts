@@ -40,10 +40,11 @@ export async function createSample(request: NextRequest) {
       body.name = sanitizeHtml(body.name);
       body.description = sanitizeHtml(body.description);
       body.url = sanitizeHtml(body.url);
-      body.images = [{"filename":"image11.png"},{"filename":"image11.png"},{"filename":"image11.png"},{"filename":"image11.png"}];
+      // hard coding the images for our lesson sample
+      body.images = [{"filename":"image11.png"},{"filename":"image12.png"},{"filename":"image13.png"},{"filename":"image14.png"}];
 
       // insert new document into DB
-      let result:InsertOneResult = await mongoClient.db(DB_NAME).collection(COLLECTION_NAME).insertOne(body);
+      let result:InsertOneResult = await mongoClient.db(DB_NAME).collection<Sample>(COLLECTION_NAME).insertOne(body);
 
       // returning response and setting status code to 200
       return NextResponse.json(result, {status: 200});
